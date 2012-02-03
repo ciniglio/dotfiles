@@ -5,13 +5,14 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="random"
+ZSH_THEME="kennethreitz"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias e="/Applications/Emacs.app/Contents/MacOS/bin/emacsclient"
+alias e="/Applications/Emacs.app/Contents/MacOS/bin/emacsclient -c"
 alias ec="/Applications/Emacs.app/Contents/MacOS/bin/emacsclient -nw"
+alias esr="killall Emacs && /Applications/Emacs.app/Contents/MacOS/emacs --daemon"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
