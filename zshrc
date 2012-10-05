@@ -5,14 +5,20 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
+
+# Good ones: nanotech, candy, macovsky-ruby
+# Have potential but need work: dieter
+
 ZSH_THEME="candy"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias e="/Applications/Emacs.app/Contents/MacOS/bin/emacsclient -c"
+alias e="(/Applications/Emacs.app/Contents/MacOS/bin/emacsclient -c &)\
+ && open -a Emacs"
 alias ec="/Applications/Emacs.app/Contents/MacOS/bin/emacsclient -nw"
-alias esr="(killall Emacs || killall emacs || true) && /Applications/Emacs.app/Contents/MacOS/emacs --daemon"
+alias esr="(killall Emacs || killall emacs || true)\
+ && /Applications/Emacs.app/Contents/MacOS/Emacs --daemon"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -39,3 +45,4 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 # LS_COLORS="di=01;32:ln=01;32:ex=01;32"
 # export LS_COLORS
+PATH=$PATH:~/bin
