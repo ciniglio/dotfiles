@@ -20,6 +20,9 @@ alias ec="/Applications/Emacs.app/Contents/MacOS/bin/emacsclient -nw"
 alias esr="(killall Emacs || killall emacs || true)\
  && /Applications/Emacs.app/Contents/MacOS/Emacs --daemon"
 
+alias hibernate_on="sudo pmset -a hibernatemode 25"
+alias hibernate_off="sudo pmset -a hibernatemode 3"
+
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 
@@ -45,4 +48,8 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 # LS_COLORS="di=01;32:ln=01;32:ex=01;32"
 # export LS_COLORS
-PATH=$PATH:~/bin
+PATH=~/bin:$PATH
+PATH=/Users/aciniglio/_dev/lib/go/bin:$PATH
+GOPATH=$HOME/_dev/lib/gocode
+
+export GOPATH
