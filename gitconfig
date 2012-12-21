@@ -28,3 +28,8 @@
     ra = !git r --all
     l = "!source ~/.git_helper && pretty_git_log"
     la = !git l --all
+[push]
+	default = upstream
+[github]
+	user = ciniglio
+	oauth-token = 233aa2335a3357044b2febdccb01dda233849782
