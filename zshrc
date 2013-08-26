@@ -15,9 +15,9 @@ ZSH_THEME="candy"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias e="(/Applications/Emacs.app/Contents/MacOS/bin/emacsclient -c &)\
- && open -a Emacs"
+ && open -a /Applications/Emacs.app"
 alias ec="/Applications/Emacs.app/Contents/MacOS/bin/emacsclient -nw"
-alias esr="(killall Emacs || killall emacs || true)\
+alias esr="(killall Emacs || killall emacs || killall Emacs-10.7 || true)\
  && /Applications/Emacs.app/Contents/MacOS/Emacs --daemon"
 
 alias hibernate_on="sudo pmset -a hibernatemode 25"
@@ -50,6 +50,6 @@ source $ZSH/oh-my-zsh.sh
 # export LS_COLORS
 PATH=~/bin:$PATH
 PATH=/Users/aciniglio/_dev/lib/go/bin:$PATH
-GOPATH=$HOME/_dev/lib/gocode
+export PATH=/opt/local/lib/postgresql92/bin/:$PATH
 
-export GOPATH
+export GOPATH=$HOME/_dev/lib/gocode
