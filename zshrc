@@ -17,6 +17,30 @@ ZSH_THEME="candy"
 alias hibernate_on="sudo pmset -a hibernatemode 25"
 alias hibernate_off="sudo pmset -a hibernatemode 3"
 
+git-delete-branch () {
+    branch=$1
+    git branch -d $branch && git push origin :$branch
+}
+
+alias gdelb="git-delete-branch"
+
+alias dev="cd ~/_dev"
+
+alias hrc="heroku run console"
+alias hlg="heroku logs -t"
+alias hps="heroku ps"
+
+CG=(--app campaign-grouper)
+CGS=(--app campaign-grouper-staging)
+FBM=(--app facebook-mirror)
+FBMS=(--app facebook-mirror-staging)
+ES=(--app ending-system)
+ESS=(--app ending-system-staging)
+AI=(--app adaptly-insightful)
+PGB=(--app adaptly-fb-bench-pg)
+BENCH=(--app adaptly-fb-benchmarks)
+
+
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 
@@ -61,11 +85,11 @@ PATH=/opt/local/bin:/opt/local/sbin:$PATH
 PATH=/opt/local/lib/postgresql92/bin/:$PATH
 PATH=/opt/local/lib/postgresql93/bin/:$PATH
 PATH=$HOME/_dev/lib/go/bin:$PATH
-
 PATH=~/bin:$PATH
 PATH=$HOME/.cask/bin:$PATH
+PATH=/Users/aciniglio/_dev/lib/go/bin:$PATH
+PATH=~/bin/elastic-mapreduce-ruby:$PATH
 
 export PATH=$PATH
 export MANPATH=/opt/local/share/man:$MANPATH
-
 export GOPATH=$HOME/_dev/lib/gocode
