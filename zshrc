@@ -14,12 +14,6 @@ ZSH_THEME="candy"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias e="(/Applications/Emacs.app/Contents/MacOS/bin/emacsclient -c &)\
- && open -a /Applications/Emacs.app"
-alias ec="/Applications/Emacs.app/Contents/MacOS/bin/emacsclient -nw"
-alias esr="(killall Emacs || killall emacs || killall Emacs-10.7 || true)\
- && /Applications/Emacs.app/Contents/MacOS/Emacs --daemon"
-
 alias hibernate_on="sudo pmset -a hibernatemode 25"
 alias hibernate_off="sudo pmset -a hibernatemode 3"
 
@@ -48,8 +42,30 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 # LS_COLORS="di=01;32:ln=01;32:ex=01;32"
 # export LS_COLORS
+
+if [[ -d /Applications/Emacs.app ]]; then
+    emacs_path=/Applications/Emacs.app/Contents/MacOS
+    emacsclient=$emacs_path/bin/emacsclient
+    exit_elisp="(kill-emacs)"
+    alias e="($emacsclient -c &) && osascript -e 'tell application \"Emacs\" to activate'"
+    alias ec="$emacsclient -nw"
+    alias esr="($emacsclient --eval \"$exit_elisp\" || true) &&
+	(killall Emacs || killall emacs || killall Emacs-10.7 || true)\
+	&& $emacs_path/Emacs --daemon --debug-init"
+    alias emacs="$emacs_path/Emacs -nw"
+
+    PATH=$emacs_path/bin:$PATH
+fi
+
+PATH=/opt/local/bin:/opt/local/sbin:$PATH
+PATH=/opt/local/lib/postgresql92/bin/:$PATH
+PATH=/opt/local/lib/postgresql93/bin/:$PATH
+PATH=$HOME/_dev/lib/go/bin:$PATH
+
 PATH=~/bin:$PATH
-PATH=/Users/aciniglio/_dev/lib/go/bin:$PATH
-export PATH=/opt/local/lib/postgresql92/bin/:$PATH
+PATH=$HOME/.cask/bin:$PATH
+
+export PATH=$PATH
+export MANPATH=/opt/local/share/man:$MANPATH
 
 export GOPATH=$HOME/_dev/lib/gocode
