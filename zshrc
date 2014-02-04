@@ -74,7 +74,15 @@ source $ZSH/oh-my-zsh.sh
 # export LS_COLORS
 PATH=~/bin:$PATH
 PATH=/Users/aciniglio/_dev/lib/go/bin:$PATH
-export PATH=/opt/local/lib/postgresql92/bin/:$PATH
+export PATH=/opt/local/lib/postgresql92/bin:$PATH
 export PATH=~/bin/elastic-mapreduce-ruby:$PATH
+export PATH=/usr/local/bin:$PATH
+export PATH=/Users/alejandro/Downloads/AWSCloudFormation-1.0.12/bin:$PATH
 
 export GOPATH=$HOME/_dev/lib/gocode
+
+export AWS_CREDENTIAL_FILE=~/.aws_credentials
+export AWS_CLOUDFORMATION_HOME=/Users/alejandro/Downloads/AWSCloudFormation-1.0.12
+export JAVA_HOME=`/usr/libexec/java_home -v 1.7`
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
