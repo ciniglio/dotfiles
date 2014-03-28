@@ -73,7 +73,7 @@ if [[ -d /Applications/Emacs.app ]]; then
     emacs_path=/Applications/Emacs.app/Contents/MacOS
     emacsclient=$emacs_path/bin/emacsclient
     exit_elisp="(kill-emacs)"
-    alias e="($emacsclient -c &) && osascript -e 'tell application \"Emacs\" to activate'"
+    alias e="($emacsclient -c &) && sleep 0.24 && osascript -e 'tell application \"Emacs\" to activate'"
     alias ec="$emacsclient -nw"
     alias esr="($emacsclient --eval \"$exit_elisp\" || true) &&
         (killall Emacs || killall emacs || killall Emacs-10.7 || true)\
