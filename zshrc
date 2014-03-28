@@ -29,6 +29,8 @@ alias dev="cd ~/_dev"
 alias hrc="heroku run console"
 alias hlg="heroku logs -t"
 alias hps="heroku ps"
+alias hcon="heroku config"
+alias hpsql="heroku pg:psql"
 
 CG=(--app campaign-grouper)
 CGS=(--app campaign-grouper-staging)
@@ -36,7 +38,7 @@ FBM=(--app facebook-mirror)
 FBMS=(--app facebook-mirror-staging)
 ES=(--app ending-system)
 ESS=(--app ending-system-staging)
-AI=(--app adaptly-insightful)
+AE=(--app adaptly-edge)
 PGB=(--app adaptly-fb-bench-pg)
 BENCH=(--app adaptly-fb-benchmarks)
 
@@ -74,8 +76,8 @@ if [[ -d /Applications/Emacs.app ]]; then
     alias e="($emacsclient -c &) && osascript -e 'tell application \"Emacs\" to activate'"
     alias ec="$emacsclient -nw"
     alias esr="($emacsclient --eval \"$exit_elisp\" || true) &&
-	(killall Emacs || killall emacs || killall Emacs-10.7 || true)\
-	&& $emacs_path/Emacs --daemon --debug-init"
+        (killall Emacs || killall emacs || killall Emacs-10.7 || true)\
+        && $emacs_path/Emacs --daemon --debug-init"
     alias emacs="$emacs_path/Emacs -nw"
 
     PATH=$emacs_path/bin:$PATH
