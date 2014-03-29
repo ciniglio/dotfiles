@@ -76,8 +76,8 @@ if [[ -d /Applications/Emacs.app ]]; then
     alias e="($emacsclient -c &) && sleep 0.24 && osascript -e 'tell application \"Emacs\" to activate'"
     alias ec="$emacsclient -nw"
     alias esr="($emacsclient --eval \"$exit_elisp\" || true) &&
-        (killall Emacs || killall emacs || killall Emacs-10.7 || true)\
-        && $emacs_path/Emacs --daemon --debug-init"
+	(killall Emacs || killall emacs || killall Emacs-10.7 || true)\
+	&& $emacs_path/Emacs --daemon"
     alias emacs="$emacs_path/Emacs -nw"
 
     PATH=$emacs_path/bin:$PATH

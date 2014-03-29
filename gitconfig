@@ -20,7 +20,6 @@
 	pom = push origin master
 	b = branch
 	dh1 = diff HEAD~1
-	
 	head = !git l -1
 	h = !git head
 	hp = "!source ~/.git_helper && show_git_head"
