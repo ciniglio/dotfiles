@@ -1,0 +1,19 @@
+#!/usr/bin/env zsh
+
+MY_BOOK_3="41E265B5-28EB-4417-B5E7-42F33BCFF86D"
+MBPR_BACKUP_3="57AEC8B1-F98B-4EF4-B19A-BB135C491472"
+TIME_MACHINE_SECONDARY="6642E372-41E1-43B7-BD64-3D9D85047CC2"
+
+THEIA_CLONE="2AFD917C-0862-4C42-AB82-9208E5F87A91"
+
+PERSEUS_FILES="967165C1-8127-4AFB-BCA4-765C55A52BCF"
+
+unlock-disk () {
+    disk=$1
+    diskutil coreStorage unlockVolume $disk -stdinpassphrase
+}
+
+
+eject-disks () {
+		open bin/eject_disks.app
+}

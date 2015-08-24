@@ -7,6 +7,7 @@ ZSH=$HOME/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 
 # Good ones: nanotech, candy, macovsky-ruby
+#            *pure*, intheloop
 # Have potential but need work: dieter
 
 ZSH_THEME="candy"
@@ -47,6 +48,7 @@ alias dev="cd ~/_dev"
 plugins=(git rbenv macports bundler)
 
 source $ZSH/oh-my-zsh.sh
+source $HOME/.drive_helper.sh
 
 # Customize to your needs...
 # LS_COLORS="di=01;32:ln=01;32:ex=01;32"
@@ -65,6 +67,8 @@ if [[ -d /Applications/Emacs.app ]]; then
 
     PATH=$emacs_path/bin:$PATH
 fi
+
+alias yt="youtube-dl -f mp4"
 
 PATH=/usr/local/bin:$PATH
 
