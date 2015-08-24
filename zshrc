@@ -26,23 +26,6 @@ alias gdelb="git-delete-branch"
 
 alias dev="cd ~/_dev"
 
-alias hrc="heroku run console"
-alias hlg="heroku logs -t"
-alias hps="heroku ps"
-alias hcon="heroku config"
-alias hpsql="heroku pg:psql"
-
-CG=(--app campaign-grouper)
-CGS=(--app campaign-grouper-staging)
-FBM=(--app facebook-mirror)
-FBMS=(--app facebook-mirror-staging)
-ES=(--app ending-system)
-ESS=(--app ending-system-staging)
-AE=(--app adaptly-edge)
-PGB=(--app adaptly-fb-bench-pg)
-BENCH=(--app adaptly-fb-benchmarks)
-
-
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 
@@ -100,8 +83,4 @@ export MANPATH=/opt/local/share/man:$MANPATH
 export GOPATH=$HOME/_dev/lib/gocode
 
 export AWS_CREDENTIAL_FILE=$HOME/.aws_credentials
-export AWS_CLOUDFORMATION_HOME=$HOME/Downloads/AWSCloudFormation-1.0.12
 export JAVA_HOME=`/usr/libexec/java_home -v 1.7`
-
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
