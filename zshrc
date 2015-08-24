@@ -66,21 +66,21 @@ if [[ -d /Applications/Emacs.app ]]; then
     PATH=$emacs_path/bin:$PATH
 fi
 
+PATH=/usr/local/bin:$PATH
+
+### Macports bullshit
 PATH=/opt/local/bin:/opt/local/sbin:$PATH
 PATH=/opt/local/lib/postgresql92/bin/:$PATH
 PATH=/opt/local/lib/postgresql93/bin/:$PATH
-PATH=~/bin:$PATH
-PATH=$HOME/.cask/bin:$PATH
-PATH=$HOME/_dev/lib/go/bin:$PATH
-PATH=$HOME/_dev/lib/go/bin:$PATH
-PATH=~/bin/elastic-mapreduce-ruby:$PATH
+PATH=$PATH:/opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin
+export MANPATH=/opt/local/share/man:$MANPATH
 
-PATH=/usr/local/bin:$PATH
-PATH=$HOME/Downloads/AWSCloudFormation-1.0.12/bin:$PATH
+PATH=$HOME/bin:$PATH
+
+# Emacs Cask
+PATH=$HOME/.cask/bin:$PATH
 
 export PATH=$PATH
-export MANPATH=/opt/local/share/man:$MANPATH
-export GOPATH=$HOME/_dev/lib/gocode
 
 export AWS_CREDENTIAL_FILE=$HOME/.aws_credentials
 export JAVA_HOME=`/usr/libexec/java_home -v 1.7`
