@@ -4,7 +4,7 @@
 
 ########## Variables
 
-dir=~/.dotfiles                    # dotfiles directory
+dir=~/conf                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
 files="emacs gitconfig git_helper profile zshrc oh-my-zsh"    # list of files/folders to symlink in homedir
 

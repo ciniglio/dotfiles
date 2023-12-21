@@ -27,6 +27,11 @@
 	ra = !git r --all
 	l = "!source ~/.git_helper && pretty_git_log"
 	la = !git l --all
+  watch = "!while :; do clear; \
+                       git status --short; \
+                       git --no-pager diff --shortstat; \
+                       sleep 2; \
+           done"
 [push]
 	default = upstream
 [github]

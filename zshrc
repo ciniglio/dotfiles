@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
@@ -7,10 +14,10 @@ ZSH=$HOME/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 
 # Good ones: nanotech, candy, macovsky-ruby
-#            *pure*, intheloop
+#            *pure*, intheloop, nicoulaj, af-magic
 # Have potential but need work: dieter
 
-ZSH_THEME="candy"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -41,11 +48,12 @@ alias dev="cd ~/_dev"
 
 # Uncomment following line if you want red dots to be displayed while waiting for completion
 # COMPLETION_WAITING_DOTS="true"
+ZSH_DISABLE_COMPFIX="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git rbenv macports bundler)
+plugins=(git macports nvm yarn z asdf)
 
 source $ZSH/oh-my-zsh.sh
 source $HOME/.drive_helper.sh
@@ -55,6 +63,7 @@ source $HOME/.drive_helper.sh
 # export LS_COLORS
 
 if [[ -d /Applications/Emacs.app ]]; then
+    emacs_env='CFLAGS="-I/opt/local/include/gcc10" LDFLAGS="-I/opt/local/include/gcc10 -L/opt/local/lib/gcc10"'
     emacs_path=/Applications/Emacs.app/Contents/MacOS
     emacsclient=$emacs_path/bin/emacsclient
     exit_elisp="(kill-emacs)"
@@ -62,8 +71,8 @@ if [[ -d /Applications/Emacs.app ]]; then
     alias ec="$emacsclient -nw"
     alias esr="($emacsclient --eval \"$exit_elisp\" || true) &&
 	(killall Emacs || killall emacs || killall Emacs-10.7 || true)\
-	&& $emacs_path/Emacs --daemon"
-    alias emacs="$emacs_path/Emacs -nw"
+	&& $emacs_env $emacs_path/Emacs --daemon"
+    alias emacs="$emacs_env $emacs_path/Emacs -nw"
 
     PATH=$emacs_path/bin:$PATH
 fi
@@ -74,17 +83,19 @@ PATH=/usr/local/bin:$PATH
 
 ### Macports bullshit
 PATH=/opt/local/bin:/opt/local/sbin:$PATH
-PATH=/opt/local/lib/postgresql92/bin/:$PATH
-PATH=/opt/local/lib/postgresql93/bin/:$PATH
-PATH=$PATH:/opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin
 export MANPATH=/opt/local/share/man:$MANPATH
 
-PATH=$HOME/bin:$PATH
+export LDFLAGS="-I/opt/local/include/gcc12 -L/opt/local/lib/gcc12"
 
-# Emacs Cask
-PATH=$HOME/.cask/bin:$PATH
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-export PATH=$PATH
+[[ ! -d ~/.asdf ]] || source $HOME/.asdf/asdf.sh  
 
-export AWS_CREDENTIAL_FILE=$HOME/.aws_credentials
-export JAVA_HOME=`/usr/libexec/java_home -v 1.7`
+
+# Local Variables:
+# mode: sh
+# End:
+
+# opam configuration
+[[ ! -r /Users/alejandro/.opam/opam-init/init.zsh ]] || source /Users/alejandro/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
